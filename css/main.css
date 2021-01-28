@@ -9,8 +9,9 @@
   --accent-color: #2196f3;
   --primary-background-color: #ffffff;
   --secondary-background-color: #2f303a;
+  --svg-primary-color: #AFB1B8;
 }
-
+/* *************************************************** */
 /* Стилизация частей страницы */
 header {
   background-color: var(--primary-background-color);
@@ -25,7 +26,6 @@ body {
 footer {
   background-color: var(--secondary-background-color);
 }
-
 address{
   font-style: normal;
 }
@@ -33,8 +33,7 @@ img {
   display: block;
   max-width: 100%;
 }
-
-
+/* *************************************************** */
 /* Общие правила */
 .list {
   list-style: none;
@@ -69,14 +68,15 @@ img {
   margin-right: auto;
   padding: 0 15px;
 }
-
+.svg {
+  fill: currentColor;
+}
+/* *************************************************** */
 /* Стилизация лого */
 .logo {
   margin-right: 93px;
-
   color:#000000;
   font-family: Raleway, cursive;
-
   letter-spacing: 0.03em;
   font-weight: 700;
   font-size: 26px;
@@ -96,7 +96,7 @@ img {
 .logo-footer:focus {
   color: var(--accent-color);
 }
-
+/* *************************************************** */
 /* Стилизация навбара */
 .header .container {
   display: flex;
@@ -116,12 +116,10 @@ img {
   margin-right: 50px;
 }
 .nav-link, .address-link {
-  display: block;
+  display: flex;
   padding-top: 32px;
   padding-bottom: 32px;
 }
-
-
 .site-nav .link {
   color: var(--title-text-color);
 
@@ -137,7 +135,7 @@ img {
 .site-nav .link.current {
   color: var(--accent-color);
 }
-
+/* *************************************************** */
 /* Стилизация навбар адреса */
 .contact-nav {
   display: flex;
@@ -148,8 +146,6 @@ img {
 }
 .contact-nav .link {
   color: var(--primary-text-color);
-
-
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -159,11 +155,19 @@ img {
 .contact-nav .link:focus {
   color: var(--accent-color);
 }
-
+.contact-svg {
+  margin-right: 10px;
+  padding-top: 1px;
+  fill: currentColor;
+}
+/* *************************************************** */
 /* Стилизация футера */
 .footer {
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding: 60px 0;
+}
+.footer-container {
+  display: flex;
+  align-items: baseline;
 }
 .street-address {
   display: block;
@@ -186,7 +190,40 @@ img {
 .contact-address .link:focus {
   color: var(--accent-color);
 }
-
+.join-us {
+  margin-left: 70px;
+}
+.connected {
+  color: var(--primary-background-color);
+  margin-bottom: 20px;
+  
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.joinus-list {
+  display: flex;
+}
+.joinus-list-item:not(:last-child) {
+  margin-right: 10px;
+}
+.joinus-link {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-background-color);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.joinus-link:hover,
+.joinus-link:focus {
+  background-color: var(--accent-color);
+}
+/* *************************************************** */
 /* Стилизация index.html */
 /* Общие стилизации секций */
 .section-title {
@@ -195,13 +232,22 @@ img {
   letter-spacing: 0.03em;
   font-weight: 700;
   font-size: 36px;
-  line-height: 42px;
+  line-height: 1.16;
   text-align: center;
 }
-
+/* *************************************************** */
 /* Стилизация героя */
 .hero {
   background-color: var(--secondary-background-color);
+  max-width: 1600px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(
+    rgba(47, 48, 58, 0.4),
+    rgba(47, 48, 58, 0.4)
+  ),
+  url(../images/hero-background.jpg);
   text-align: center;
   padding-top: 200px;
   padding-bottom: 200px;
@@ -237,7 +283,7 @@ img {
   /* identical to box height, or 187% */
   text-align: center;
 }
-
+/* *************************************************** */
 /* Стилизация секции "Почему стоит выбрать нас?" */
 .advantages {
   padding: 94px 0;
@@ -252,7 +298,6 @@ img {
   font-size: 14px;
   line-height: 1.71;
 }
-
 .pick-us-item {
   width: 270px;
 }
@@ -267,11 +312,22 @@ img {
   line-height: 1.14;
   text-transform: uppercase;
 }
+.pick-us-svg {
+  height: 120px;
+  background-color: #F5F4FA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+
+  border-radius: 4px;
+}
+/* *************************************************** */
 /* Cтилизация секции "Чем мы занимаемся" */
 .what-wedo {
   padding: 0 0 94px 0;
 }
-.wedo-title {
+.wedo-title, .clients-title {
   margin-bottom: 50px;
 }
 .wedo-list {
@@ -283,6 +339,7 @@ img {
 .wedo-item:not(:last-child) {
   margin-right: 30px;
 }
+/* *************************************************** */
 /* Стилизация секции "Наша команда" */
 .team {
   padding: 94px 0;
@@ -326,7 +383,65 @@ img {
 .member-box .title {
   margin-bottom: 10px;
 }
-
+.member-job {
+  margin-bottom: 16px;
+}
+.svg-list {
+  display: flex;
+  justify-content: center;
+}
+.svg-list-item:not(:last-child) {
+  margin-right: 10px;
+}
+.svg-link {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--svg-primary-color);
+}
+.svg-link:hover,
+.svg-link:focus {
+  color : var(--primary-background-color);
+  background-color: var(--accent-color);
+}
+/* *************************************************** */
+/* Стилизация секции "Постоянные клиенты" */
+.clients {
+  padding: 94px 0;
+}
+.client-list {
+  display: flex;
+  width: 1170px;
+}
+.client-list-item:not(:last-child) {
+  margin-right: 30px;
+}
+.client-list-item{
+  width:170px;
+  height: 90px;
+}
+.client-list-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  border: 1px solid var(--svg-primary-color);
+  border-radius: 4px;
+  color: var(--svg-primary-color);
+}
+.client-list-link:hover,
+.clent-list-link:focus {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+.client-svg {
+  fill: currentColor;
+}
+/* *************************************************** */
 /* Стилизация portfolio.html */
 .bottom-underline {
   border: 1px solid #ececec;
@@ -335,7 +450,7 @@ img {
   padding-top: 94px;
   padding-bottom: 94px;
 }
-
+/* *************************************************** */
 /* Стилизация кнопок */
 .nav-buttons {
   display: flex;
@@ -366,7 +481,7 @@ img {
 .btn-item:not(:last-child) {
   margin-right: 8px;
 }
-
+/* *************************************************** */
 /* Стилизация карточек */
 .projects-cards {
   display: flex;
@@ -407,7 +522,4 @@ img {
   line-height: 2;
   /* identical to box height, or 200% */
   letter-spacing: 0.06em;
-}
-
-
- 
+} 
