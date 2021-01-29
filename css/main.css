@@ -116,6 +116,7 @@ img {
   margin-right: 50px;
 }
 .nav-link, .address-link {
+  align-items: center;
   display: flex;
   padding-top: 32px;
   padding-bottom: 32px;
@@ -157,7 +158,6 @@ img {
 }
 .contact-svg {
   margin-right: 10px;
-  padding-top: 1px;
   fill: currentColor;
 }
 /* *************************************************** */
@@ -505,6 +505,11 @@ img {
 
   font-size: 16px;
   line-height: 1.87;
+  
+}
+.project-item:hover,
+.project-item:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 .cards-text {
   padding: 20px 23px;
